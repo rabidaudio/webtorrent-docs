@@ -113,33 +113,33 @@ A description of these modules is available below. See each package for more inf
 
 # Dependant packages
 
-Module                                                                             |                                           Description
----------------------------------------------------------------------------------- | -----------------------------------------------------------------------------------------------------
-[webtorrent](https://github.com/feross/webtorrent) (main repo)                     | Browser torrent client.
-[bittorrent-protocol](https://github.com/feross/bittorrent-protocol)               | Implementation of the core BitTorrent protocols.
-  -[plugin: ut_metadata](https://github.com/feross/ut_metadata)                    | Core BitTorrent protocol for allowing peer sharing of file metadata, which is used by magnet links.
-  -plugin: encryption _(todo)_                                                     | Create connections peers using encryption.
-  -plugin: peer exchange protocol (PEX) _(todo)_                                   | Core BitTorrent protocol for sending data between peers.
-  -plugin: ÂµTP _(todo)_                                                           | Alternative, UDP-based BitTorrent protocol for mitigating network congestion.
-  -plugin: UPnP and NAT-PMP port forwarding _(todo)_                               | Universal Plug-and-Play and NAT Port Mapping protocols for handling communication through NATs.
-  -plugin: webseed support _(todo)_                                                | BitTorrent protocol for downloading via HTTP as well as from peers.
-[bittorrent-swarm](https://github.com/feross/bittorrent-swarm)                     | Handles creating and listening for peer connections, handshakes, and tracking traffic.
-[bittorrent-dht](https://github.com/feross/bittorrent-dht) *(work-in-progress)*    | Distributed hash table system (BitTorrent's distributed tracker).
-[magnet-uri](https://github.com/feross/magnet-uri)                                 | Parser for magnet links.
-[parse-torrent](https://github.com/feross/parse-torrent)                           | Parser for `.torrent` files.
-[buffer](https://github.com/feross/buffer)                                         | Browser implementation of [Node buffers](http://nodejs.org/api/buffer.html).
-[chrome-net](https://github.com/feross/chrome-net)                                 | Browser implementation of [Node net API](http://nodejs.org/api/net.html)(TCP) for Chrome apps.
-[chrome-dgram](https://github.com/feross/chrome-dgram)                             | Browser implementation of [Node dgram API](http://nodejs.org/api/dgram.html)(UDP) for Chrome apps.
-[chrome-portfinder](https://github.com/feross/chrome-portfinder)                   | Browser implementaiton of [portfinder](https://github.com/indexzero/node-portfinder) for Chrome apps.
-[drag-drop](https://github.com/feross/drag-drop)                                   | Browser wrapper for HTML5 drag-and-drop functionality.
-webtorrent-protocol _(todo)_                                                       | New protocol based off core BitTorrent protocols running over WebRTC.
-webtorrent-dht _(todo)_                                                            | Implementation of DHT system running over WebRTC.
-webtorrent-swarm _(todo)_                                                          | Implementation of swarm protocol running over WebRTC.
-webtorrent-bootstrap _(todo)_                                                      | ??
-webworker-pool _(todo)_                                                            | ??
-webtorrent-verifier _(todo)_                                                       | Verify downloaded files are complete and uncorrupted.
-sdp-compress _(todo)_                                                              | Session Description Protocol for multimedia session communication.
-webtorrent-chrome _(todo)_                                                         | ??
+Module                                                                              |                                           Description
+----------------------------------------------------------------------------------- | -----------------------------------------------------------------------------------------------------
+[webtorrent](https://github.com/feross/webtorrent) (main repo)                      | Browser torrent client.
+[bittorrent-protocol](https://github.com/feross/bittorrent-protocol)                | Implementation of the core BitTorrent protocols.
+`  >`[plugin: ut_metadata](https://github.com/feross/ut_metadata)                   | Core BitTorrent protocol for allowing peer sharing of file metadata, which is used by magnet links.
+`  >`plugin: encryption _(todo)_                                                    | Create connections peers using encryption.
+`  >`plugin: peer exchange protocol (PEX) _(todo)_                                  | Core BitTorrent protocol for sending data between peers.
+`  >`plugin: µTP _(todo)_                                                           | Alternative, UDP-based BitTorrent protocol for mitigating network congestion.
+`  >`plugin: UPnP and NAT-PMP port forwarding _(todo)_                              | Universal Plug-and-Play and NAT Port Mapping protocols for handling communication through NATs.
+`  >`plugin: webseed support _(todo)_                                               | BitTorrent protocol for downloading via HTTP as well as from peers.
+[bittorrent-swarm](https://github.com/feross/bittorrent-swarm)                      | Handles creating and listening for peer connections, handshakes, and tracking traffic.
+[bittorrent-dht](https://github.com/feross/bittorrent-dht) *(work-in-progress)*     | Distributed hash table system (BitTorrent's distributed tracker).
+[magnet-uri](https://github.com/feross/magnet-uri)                                  | Parser for magnet links.
+[parse-torrent](https://github.com/feross/parse-torrent)                            | Parser for `.torrent` files.
+[buffer](https://github.com/feross/buffer)                                          | Browser implementation of [Node buffers](http://nodejs.org/api/buffer.html).
+[chrome-net](https://github.com/feross/chrome-net)                                  | Browser implementation of [Node net API](http://nodejs.org/api/net.html)(TCP) for Chrome apps.
+[chrome-dgram](https://github.com/feross/chrome-dgram)                              | Browser implementation of [Node dgram API](http://nodejs.org/api/dgram.html)(UDP) for Chrome apps.
+[chrome-portfinder](https://github.com/feross/chrome-portfinder)                    | Browser implementaiton of [portfinder](https://github.com/indexzero/node-portfinder) for Chrome apps.
+[drag-drop](https://github.com/feross/drag-drop)                                    | Browser wrapper for HTML5 drag-and-drop functionality.
+webtorrent-protocol _(todo)_                                                        | New protocol based off core BitTorrent protocols running over WebRTC.
+webtorrent-dht _(todo)_                                                             | Implementation of DHT system running over WebRTC.
+webtorrent-swarm _(todo)_                                                           | Implementation of swarm protocol running over WebRTC.
+webtorrent-bootstrap _(todo)_                                                       | ??
+webworker-pool _(todo)_                                                             | ??
+webtorrent-verifier _(todo)_                                                        | Verify downloaded files are complete and uncorrupted.
+sdp-compress _(todo)_                                                               | Session Description Protocol for multimedia session communication.
+webtorrent-chrome _(todo)_                                                          | ??
 
 
 -[PEX](http://wki.pe/Peer_exchange)
