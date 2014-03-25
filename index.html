@@ -34,7 +34,7 @@ if you really want to and know what you are doing.</li></ul>
 
 <h3>Building from source</h3>
 
-<p>Most platform repositories are usually outdated, so it is better to build Node from source. Start by installing the prerequsites.
+<p>Most platform repositories are usually outdated, so it is better to build Node from source. Start by installing the prerequisites.
 On Ubuntu:</p>
 
 <pre><code>    sudo apt-get install git-core build-essential</code></pre>
@@ -68,11 +68,11 @@ or <a href="http://cpan.org">CPAN</a>. it is now included with Node.</p>
 <pre><code>    get fetch upstream
     git merge upstream/master</code></pre>
 
-<p>Now, install the dependancies:</p>
+<p>Now, install the dependencies:</p>
 
 <pre><code>    npm install</code></pre>
 
-<p>This will install a list of dependant Node modules used by this project from <code>npm</code>. The list is included in <a href="https://github.com/feross/webtorrent/blob/master/package.json"><code>package.json</code></a>.</p>
+<p>This will install a list of dependent Node modules used by this project from <code>npm</code>. The list is included in <a href="https://github.com/feross/webtorrent/blob/master/package.json"><code>package.json</code></a>.</p>
 
 <h2>Building</h2>
 
@@ -88,7 +88,7 @@ or <a href="http://cpan.org">CPAN</a>. it is now included with Node.</p>
     &quot;watch-css&quot;: &quot;stylus --use nib css/main.styl --out chrome/ --watch&quot;,
     &quot;watch-js&quot;: &quot;watchify . --outfile chrome/bundle.js --debug --verbose&quot;</code></pre>
 
-<p>To build the chrome app and install it, simply run npm start
+<p>To build the chrome app and install it, simply run <code>npm start</code>
 This will also run <code>bin/start.js</code> which will try to add the app into chrome. this could fail for several reasons:</p>
 
 <ul><li>you aren&#39;t using Chrome Canary on Mac</li><li>you are running Chromium</li><li>you are running Windows</li><li>??</li></ul>
@@ -106,10 +106,10 @@ in Chrome first by checking the box at the top of <code>chrome://extensions</cod
 <p><img alt="Reload Chrome App" src="img/reload.png"/></p>
 
 <p>Now you are ready to contribute! Commit changes and send a pull request. However, much of the functionality has been
-<a href="https://github.com/feross/webtorrent#the-node-way">intentionally</a> abstracted into independant node modules.
+<a href="https://github.com/feross/webtorrent#the-node-way">intentionally</a> abstracted into independent node modules.
 A description of these modules is available below. See each package for more information.</p>
 
-<h1>Dependant packages</h1>
+<h1>Dependent packages</h1>
 
 <p>Module                                                                              |                                           Description
 ----------------------------------------------------------------------------------- | -----------------------------------------------------------------------------------------------------
@@ -128,7 +128,7 @@ A description of these modules is available below. See each package for more inf
 <a href="https://github.com/feross/buffer">buffer</a>                                          | Browser implementation of <a href="http://nodejs.org/api/buffer.html">Node buffers</a>.
 <a href="https://github.com/feross/chrome-net">chrome-net</a>                                  | Browser implementation of <a href="http://nodejs.org/api/net.html">Node net API</a>(TCP) for Chrome apps.
 <a href="https://github.com/feross/chrome-dgram">chrome-dgram</a>                              | Browser implementation of <a href="http://nodejs.org/api/dgram.html">Node dgram API</a>(UDP) for Chrome apps.
-<a href="https://github.com/feross/chrome-portfinder">chrome-portfinder</a>                    | Browser implementaiton of <a href="https://github.com/indexzero/node-portfinder">portfinder</a> for Chrome apps.
+<a href="https://github.com/feross/chrome-portfinder">chrome-portfinder</a>                    | Browser implementation of <a href="https://github.com/indexzero/node-portfinder">portfinder</a> for Chrome apps.
 <a href="https://github.com/feross/drag-drop">drag-drop</a>                                    | Browser wrapper for HTML5 drag-and-drop functionality.
 webtorrent-protocol <em>(todo)</em>                                                        | New protocol based off core BitTorrent protocols running over WebRTC.
 webtorrent-dht <em>(todo)</em>                                                             | Implementation of DHT system running over WebRTC.
@@ -161,7 +161,7 @@ webtorrent-chrome <em>(todo)</em>                                               
 
 <p>Intro to WebRTC</p>
 
-<p>Improve dependant package docs:
+<p>Improve dependent package docs:
     bittorrent-swarm
     bittorrent-dht
     probably more

@@ -35,7 +35,7 @@ Offical guides:
 if you really want to and know what you are doing.
 
 ### Building from source
-Most platform repositories are usually outdated, so it is better to build Node from source. Start by installing the prerequsites.
+Most platform repositories are usually outdated, so it is better to build Node from source. Start by installing the prerequisites.
 On Ubuntu:
 
         sudo apt-get install git-core build-essential
@@ -67,11 +67,11 @@ If you come back later and there are any changes, fetch them and merge them when
         get fetch upstream
         git merge upstream/master
 
-Now, install the dependancies:
+Now, install the dependencies:
 
         npm install
 
-This will install a list of dependant Node modules used by this project from `npm`. The list is included in [`package.json`](https://github.com/feross/webtorrent/blob/master/package.json).
+This will install a list of dependent Node modules used by this project from `npm`. The list is included in [`package.json`](https://github.com/feross/webtorrent/blob/master/package.json).
 
 ## Building
 There are a couple of commands for building different parts of the project. You can see them in `package.json`.
@@ -86,7 +86,7 @@ There are a couple of commands for building different parts of the project. You 
         "watch-css": "stylus --use nib css/main.styl --out chrome/ --watch",
         "watch-js": "watchify . --outfile chrome/bundle.js --debug --verbose"
         
-To build the chrome app and install it, simply run npm start
+To build the chrome app and install it, simply run `npm start`
 This will also run `bin/start.js` which will try to add the app into chrome. this could fail for several reasons:
 
 - you aren't using Chrome Canary on Mac
@@ -108,10 +108,10 @@ Use the `Reload (Ctrl-R)` button to manually reload the app after changes are ma
 
 
 Now you are ready to contribute! Commit changes and send a pull request. However, much of the functionality has been
-[intentionally](https://github.com/feross/webtorrent#the-node-way) abstracted into independant node modules.
+[intentionally](https://github.com/feross/webtorrent#the-node-way) abstracted into independent node modules.
 A description of these modules is available below. See each package for more information.
 
-# Dependant packages
+# Dependent packages
 
 Module                                                                              |                                           Description
 ----------------------------------------------------------------------------------- | -----------------------------------------------------------------------------------------------------
@@ -130,7 +130,7 @@ Module                                                                          
 [buffer](https://github.com/feross/buffer)                                          | Browser implementation of [Node buffers](http://nodejs.org/api/buffer.html).
 [chrome-net](https://github.com/feross/chrome-net)                                  | Browser implementation of [Node net API](http://nodejs.org/api/net.html)(TCP) for Chrome apps.
 [chrome-dgram](https://github.com/feross/chrome-dgram)                              | Browser implementation of [Node dgram API](http://nodejs.org/api/dgram.html)(UDP) for Chrome apps.
-[chrome-portfinder](https://github.com/feross/chrome-portfinder)                    | Browser implementaiton of [portfinder](https://github.com/indexzero/node-portfinder) for Chrome apps.
+[chrome-portfinder](https://github.com/feross/chrome-portfinder)                    | Browser implementation of [portfinder](https://github.com/indexzero/node-portfinder) for Chrome apps.
 [drag-drop](https://github.com/feross/drag-drop)                                    | Browser wrapper for HTML5 drag-and-drop functionality.
 webtorrent-protocol _(todo)_                                                        | New protocol based off core BitTorrent protocols running over WebRTC.
 webtorrent-dht _(todo)_                                                             | Implementation of DHT system running over WebRTC.
@@ -166,7 +166,7 @@ Intro to torrent protocols
 
 Intro to WebRTC
     
-Improve dependant package docs:
+Improve dependent package docs:
     bittorrent-swarm
     bittorrent-dht
     probably more
