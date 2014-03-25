@@ -1,0 +1,147 @@
+<p>&lt;!--
+Thanks for the email. I&#39;m glad you like the WebTorrent concept.
+We could definitely use some help with documentation on a few fronts. First, the &quot;getting started&quot; experience for new developers
+isn&#39;t very good right now. Having a simple, straightforward guide for how to install node.js, git clone the project, install
+dependencies, etc. would go a long way to bringing in new contributors. We could put these on the webtorrent wiki here:
+https://github.com/feross/webtorrent/wiki
+We should also add the explanation of what webtorrent is and what the plans are from https://github.com/feross/webtorrent/issues/39,
+and expand on it and clarify where necessary. Would be great to have another set of eyes to fix the parts that aren&#39;t clear enough.
+Next, there are lots of packages that webtorrent depends on. There&#39;s a partial list here:
+https://github.com/feross/webtorrent#npm-modules
+Most of these were written by me, so we have access to update these docs. Some of the docs are pretty good as is, but some,
+like https://github.com/feross/bittorrent-swarm are lacking. If we could fully document the API of these packages, that would be awesome.
+Lastly, we need a webtorrent website. I&#39;m going to add that soon. I want a &quot;docs&quot; section on the site to contain all the docs for
+each module that webtorrent uses so people can learn about each piece. So the docs will hopefully have lots of visibility and help
+bring in new developers.
+If you have other ideas, let&#39;s talk. Thanks for any help you provide
+--&gt;</p>
+
+<p>Overview</p>
+
+<p>Goals</p>
+
+<p>https://github.com/feross/webtorrent/issues/39</p>
+
+<h1>Development setup</h1>
+
+<h2><a href="https://github.com/joyent/node/wiki/Installation">Install Node.js</a></h2>
+
+<p>Offical guides:</p>
+
+<ul><li><a href="https://github.com/joyent/node/wiki/Installation#building-on-gnulinux-and-other-unix">Linux/Unix</a></li><li><a href="">Mac</a></li><li><a href="https://github.com/joyent/node/wiki/Installation#installing-without-building">Windows</a> - Download the
+<a href="http://nodejs.org/download/">MSI bundle</a> or <a href="https://github.com/joyent/node/wiki/Installation#building-on-windows">install from source</a>
+if you really want to and know what you are doing.</li></ul>
+
+<h3>Building from source</h3>
+
+<p>Most platform repositories are usually outdated, so it is better to build Node from source. Start by installing the prerequsites.
+On Ubuntu:</p>
+
+<pre><code>    sudo apt-get install git-core build-essential</code></pre>
+
+<p>Also install python if you don&#39;t already have it. Mac users should be set already. Clone the official repository:</p>
+
+<pre><code>    git clone https://github.com/joyent/node.git
+    git checkout v0.10.26</code></pre>
+
+<p>Replace the above with the latest stable release. Stable releases are even-numbered. For example, <code>v0.11.12</code> is unstable.</p>
+
+<pre><code>    cd node
+    ./configure
+    make
+    sudo make install</code></pre>
+
+<h3>npm</h3>
+
+<p>Much of Node&#39;s usefulness hinges on <a href="http://npmjs.org">npm</a>, a package manager for Node, similar to <a href="http://rubygems.org">Rubygems</a>
+or <a href="http://cpan.org">CPAN</a>. it is now included with Node.</p>
+
+<h2><a href="https://help.github.com/articles/fork-a-repo">Getting code</a></h2>
+
+<p>Start by <a href="https://github.com/feross/webtorrent/fork">forking the repository</a>. Then clone your forked repository and add upstream.</p>
+
+<pre><code>    git clone https://github.com/[your_username]/webtorrent.git
+    git remote add upstream https://github.com/feross/webtorrent.git</code></pre>
+
+<p>If you come back later and there are any changes, fetch them and merge them when ready:</p>
+
+<pre><code>    get fetch upstream
+    git merge upstream/master</code></pre>
+
+<p>Now, install the dependancies:</p>
+
+<pre><code>    npm install</code></pre>
+
+<p>This will install a list of dependant Node modules used by this project from <code>npm</code>. The list is included in <a href="https://github.com/feross/webtorrent/blob/master/package.json"><code>package.json</code></a>.</p>
+
+<h2>Building</h2>
+
+<p>There are a couple of commands for building different parts of the project. You can see them in <code>package.json</code>.</p>
+
+<pre><code>    &quot;build&quot;: &quot;npm run build-css &amp;&amp; npm run build-js&quot;,
+    &quot;build-css&quot;: &quot;stylus --use nib css/main.styl --compress --out chrome/ &amp;&amp; ./bin/post-build.js&quot;,
+    &quot;build-js&quot;: &quot;browserify --debug . &gt; chrome/bundle.js&quot;,
+    &quot;prepublish&quot;: &quot;npm run build&quot;,
+    &quot;start&quot;: &quot;npm run build &amp;&amp; ./bin/start.js&quot;,
+    &quot;test&quot;: &quot;tape test/*.js&quot;,
+    &quot;watch&quot;: &quot;npm run watch-js &amp; npm run watch-css&quot;,
+    &quot;watch-css&quot;: &quot;stylus --use nib css/main.styl --out chrome/ --watch&quot;,
+    &quot;watch-js&quot;: &quot;watchify . --outfile chrome/bundle.js --debug --verbose&quot;</code></pre>
+
+<p>To build the chrome app and install it, simply run npm start
+This will also run bin/start.js which will try to add the app into chrome. this could fail for several reasons
+    - you aren&#39;t using Chrome Canary on Mac
+    - you are running chromium
+    - you are running Windows
+    - ???
+If this happens, and <code>chrome/bundle.js</code> and <code>chrome/main.css</code> exist, you can ignore the error install it manually
+by dragging the <code>chrome/</code> directory into the <code>chrome://extensions</code> page. Make sure you have enabled developer mode
+in Chrome first:
+&lt;!----TODO----&gt;</p>
+
+<p>Use the watch command to automatically build when changes are made.</p>
+
+<p>Use the &quot;Reload Extension&quot; button to reload the app after changes are made.</p>
+
+<p>Now you are ready to contribute! Commit changes and send a pull request. However, much of the functionality has been
+<a href="https://github.com/feross/webtorrent#the-node-way">intentionally</a> abstracted into independant node modules.
+A description of these modules is available below. See each package for more information.</p>
+
+<p>Dependant packages overview
+    webtorrent (main repo)
+    bittorrent-protocol
+    bittorrent-swarm
+    bittorrent-dht (work-in-progress)
+    magnet-uri
+    parse-torrent
+    buffer
+    chrome-net
+    chrome-dgram
+    chrome-portfinder
+    drag-drop
+    webtorrent-protocol (todo)
+    webtorrent-dht (todo)
+    webtorrent-swarm (todo)
+    webtorrent-bootstrap (todo)
+    webworker-pool (todo)
+    webtorrent-verifier (todo)
+    sdp-compress (todo)
+    webtorrent-chrome (todo)</p>
+
+<p>Intro to torrent protocols
+    How bittorrent works
+    primary protocol
+    torrent files
+    magnet links
+    DHT
+    swarm</p>
+
+<p>Intro to WebRTC</p>
+
+<p>Improve dependant package docs:
+    bittorrent-swarm
+    bittorrent-dht
+    probably more
+&lt;!----TODO----&gt;
+Intro to streams in JS
+    https://github.com/substack/stream-handbook</p>
