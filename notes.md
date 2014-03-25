@@ -1,21 +1,3 @@
-<!--
-Thanks for the email. I'm glad you like the WebTorrent concept.
-We could definitely use some help with documentation on a few fronts. First, the "getting started" experience for new developers
-isn't very good right now. Having a simple, straightforward guide for how to install node.js, git clone the project, install
-dependencies, etc. would go a long way to bringing in new contributors. We could put these on the webtorrent wiki here:
-https://github.com/feross/webtorrent/wiki
-We should also add the explanation of what webtorrent is and what the plans are from https://github.com/feross/webtorrent/issues/39,
-and expand on it and clarify where necessary. Would be great to have another set of eyes to fix the parts that aren't clear enough.
-Next, there are lots of packages that webtorrent depends on. There's a partial list here:
-https://github.com/feross/webtorrent#npm-modules
-Most of these were written by me, so we have access to update these docs. Some of the docs are pretty good as is, but some,
-like https://github.com/feross/bittorrent-swarm are lacking. If we could fully document the API of these packages, that would be awesome.
-Lastly, we need a webtorrent website. I'm going to add that soon. I want a "docs" section on the site to contain all the docs for
-each module that webtorrent uses so people can learn about each piece. So the docs will hopefully have lots of visibility and help
-bring in new developers.
-If you have other ideas, let's talk. Thanks for any help you provide
--->
-
 # Overview
 
 ## Goals
@@ -87,20 +69,20 @@ There are a couple of commands for building different parts of the project. You 
         "watch-js": "watchify . --outfile chrome/bundle.js --debug --verbose"
         
 To build the chrome app and install it, simply run `npm start`
-This will also run `bin/start.js` which will try to add the app into chrome. this could fail for several reasons:
+This will also run `bin/start.js` which will try to add the app into Chrome. this could fail for several reasons:
 
 - you aren't using Chrome Canary on Mac
 - you are running Chromium
 - you are running Windows
-- ??
+- some weird process error
 
-If this happens, and `chrome/bundle.js` and `chrome/main.css` exist, you can ignore the error install it manually
+If this happens, and `chrome/bundle.js` and `chrome/main.css` exist, you can ignore the error and install it manually
 by dragging the `chrome/` directory into the `chrome://extensions` page. Make sure you have enabled developer mode
 in Chrome first by checking the box at the top of `chrome://extensions`.
 
 ![Developer Mode](img/developer-mode.png)
 
-Use the watch command to automatically build when changes are made.
+Use the `npm watch` to automatically build when changes are made.
 
 Use the `Reload (Ctrl-R)` button to manually reload the app after changes are made (if `npm start` is failing).
 
@@ -142,35 +124,27 @@ sdp-compress _(todo)_                                                           
 webtorrent-chrome _(todo)_                                                          | ??
 
 
--[PEX](http://wki.pe/Peer_exchange)
--[ÂµTP](http://wki.pe/Micro_Transport_Protocol)
--[UPnP](http://wki.pe/UPnP)
--[NAT-PMP](http://wki.pe/NAT-PMP)
--[webseeding](http://wki.pe/BitTorrent#Web_seeding)
--[DHT](http://a.wki.pe/DHT)
--[Magnet link](http://wki.pe/Magnet_link)
-
-SDP - http://tools.ietf.org/html/rfc3485
-
-
-[WebRTC]
-
-
-Intro to torrent protocols
-    How bittorrent works
-    primary protocol
-    torrent files
-    magnet links
-    DHT
-    swarm
-
-Intro to WebRTC
+# Introduction to core BitTorrent protocols
+This is an overview of BitTorrent concepts. Included are links to further information and technical specifications, where available.
     
-Improve dependent package docs:
-    bittorrent-swarm
-    bittorrent-dht
-    probably more
-<!----TODO---->
-Intro to streams in JS
-    https://github.com/substack/stream-handbook
-    
+- [PEX](http://wki.pe/Peer_exchange)
+- [ÂµTP](http://wki.pe/Micro_Transport_Protocol)
+- [UPnP](http://wki.pe/UPnP)
+- [NAT-PMP](http://wki.pe/NAT-PMP)
+- [webseeding](http://wki.pe/BitTorrent#Web_seeding)
+- [DHT](http://a.wki.pe/DHT)
+- [Magnet link](http://wki.pe/Magnet_link)
+- [SDP](http://tools.ietf.org/html/rfc3485)
+
+# Introduction to WebRTC
+
+        TODO
+
+# Introduction to streams in Node.js
+https://github.com/substack/stream-handbook
+
+
+
+TODO: Improve dependent package docs:
+- bittorrent-swarm
+- bittorrent-dht
