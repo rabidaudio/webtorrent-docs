@@ -99,12 +99,12 @@ Module                                                                          
 ----------------------------------------------------------------------------------- | -----------------------------------------------------------------------------------------------------
 [webtorrent](https://github.com/feross/webtorrent) (main repo)                      | Browser torrent client.
 [bittorrent-protocol](https://github.com/feross/bittorrent-protocol)                | Implementation of the core BitTorrent protocols.
-`  >`[plugin: ut_metadata](https://github.com/feross/ut_metadata)                   | Core BitTorrent protocol for allowing peer sharing of file metadata, which is used by magnet links.
-`  >`plugin: encryption _(todo)_                                                    | Create connections peers using encryption.
-`  >`plugin: peer exchange protocol (PEX) _(todo)_                                  | Core BitTorrent protocol for sending data between peers.
-`  >`plugin: µTP _(todo)_                                                           | Alternative, UDP-based BitTorrent protocol for mitigating network congestion.
-`  >`plugin: UPnP and NAT-PMP port forwarding _(todo)_                              | Universal Plug-and-Play and NAT Port Mapping protocols for handling communication through NATs.
-`  >`plugin: webseed support _(todo)_                                               | BitTorrent protocol for downloading via HTTP as well as from peers.
+&nbsp;&nbsp;`>` [plugin: ut_metadata](https://github.com/feross/ut_metadata)        | Core BitTorrent protocol for allowing peer sharing of file metadata, which is used by magnet links.
+&nbsp;&nbsp;`>` plugin: encryption _(todo)_                                         | Create connections peers using encryption.
+&nbsp;&nbsp;`>` plugin: peer exchange protocol (PEX) _(todo)_                       | Core BitTorrent protocol for sharing peer lists.
+&nbsp;&nbsp;`>` plugin: µTP _(todo)_                                                | Alternative, UDP-based BitTorrent protocol for mitigating network congestion.
+&nbsp;&nbsp;`>` plugin: UPnP and NAT-PMP port forwarding _(todo)_                   | Universal Plug-and-Play and NAT Port Mapping protocols for handling communication through NATs.
+&nbsp;&nbsp;`>` plugin: webseed support _(todo)_                                    | BitTorrent protocol for downloading via HTTP as well as from peers.
 [bittorrent-swarm](https://github.com/feross/bittorrent-swarm)                      | Handles creating and listening for peer connections, handshakes, and tracking traffic.
 [bittorrent-dht](https://github.com/feross/bittorrent-dht) *(work-in-progress)*     | Distributed hash table system (BitTorrent's distributed tracker).
 [magnet-uri](https://github.com/feross/magnet-uri)                                  | Parser for magnet links.
@@ -126,14 +126,64 @@ webtorrent-chrome _(todo)_                                                      
 
 # Introduction to core BitTorrent protocols
 This is an overview of BitTorrent concepts. Included are links to further information and technical specifications, where available.
-    
-- [PEX](http://wki.pe/Peer_exchange)
-- [ÂµTP](http://wki.pe/Micro_Transport_Protocol)
+
+## Terms to be defined
+
+https://en.wikipedia.org/wiki/Glossary_of_BitTorrent_terms
+
+- Peer
+- Swarm
+- Tracker
+
+### BitTorrent (protocol)
+The protocol that defines data transfer between peers. Not to be confused with the technology as a whole, or the company that created it,
+both of which fall under the same name.
+
+- [Specification](http://www.bittorrent.org/beps/bep_0003.html)
+
+### PEX
+Peer exchange is the protocol which allows peers to share lists of known peers directly, reducing the reliance on a tracker. 
+
+- [Wikipedia](http://wki.pe/Peer_exchange)
+- [Vuze](http://wiki.vuze.com/w/Peer_Exchange)
+- [Specification (AZMP, LTEP)](https://wiki.theory.org/BitTorrentPeerExchangeConventions)
+
+### µTP
+A UDP variant of the BitTorrent data transfer protocol which solves congestion issues. 
+
+- [Wikipedia](http://wki.pe/Micro_Transport_Protocol)
+- [Specification](http://bittorrent.org/beps/bep_0029.html)
+- [LEDBAT algorithm Specification](http://tools.ietf.org/html/rfc6817)
+
+### DHT
+A distributed hash table is a way of storing key-value data in a distributed fashion. In a sense, it is a simple distributed database.
+Each peer is responsible for a part of the data, and peer ids are used to determine which peer has the data in question. BitTorrent uses
+a specific implementation called "Mainline DHT" to allow for trackerless torrents by storing peer lists this way.
+
+- [DHT - Wikipedia](http://a.wki.pe/DHT)
+- [Mainline DHT - Wikipedia](http://wki.pe/Mainline_DHT)
+- [Specification](http://www.bittorrent.org/beps/bep_0005.html)
+
+
+### Magnet links
+A way of transferring file metadata with a URI instead of a `.torrent` file. For example:
+
+        magnet:?xt=urn:sha1:YNCKHTQCWBTRNJIV4WNAE52SJUQCZO5C
+        
+The `xt` value is a base-32 encoded SHA-1 hash of the file contents. This is used as a unique identifier for the file, and it can be used
+to get peers and other information about the file from the swarm.
+
+- [Wikipedia](http://wki.pe/Magnet_link)
+- [Official Site](http://magnet-uri.sourceforge.net/)
+- [Specification](http://magnet-uri.sourceforge.net/magnet-draft-overview.txt)
+
+
+more:
+
 - [UPnP](http://wki.pe/UPnP)
 - [NAT-PMP](http://wki.pe/NAT-PMP)
+- Somewhere in here, talk about NAT Traversal and STUN (which is also a WebRTC topic)
 - [webseeding](http://wki.pe/BitTorrent#Web_seeding)
-- [DHT](http://a.wki.pe/DHT)
-- [Magnet link](http://wki.pe/Magnet_link)
 - [SDP](http://tools.ietf.org/html/rfc3485)
 
 # Introduction to WebRTC
