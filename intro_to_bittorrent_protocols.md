@@ -15,7 +15,7 @@ https://en.wikipedia.org/wiki/Glossary_of_BitTorrent_terms
 The protocol that defines data transfer between peers. Not to be confused with the technology as a whole, or the company that created it,
 both of which fall under the same name.
 
-- [Specification](http://www.bittorrent.org/beps/bep_0003.html)
+- [Specificationn](http://www.bittorrent.org/beps/bep_0003.html)
 
 ### PEX
 Peer exchange is the protocol which allows peers to share lists of known peers directly, reducing the reliance on a tracker. 
@@ -29,7 +29,7 @@ A UDP variant of the BitTorrent data transfer protocol which solves congestion i
 
 - [Wikipedia](http://wki.pe/Micro_Transport_Protocol)
 - [Specification](http://bittorrent.org/beps/bep_0029.html)
-- [LEDBAT algorithm Specification](http://tools.ietf.org/html/rfc6817)
+- [LEDBAT algorithm Specificationn](http://tools.ietf.org/html/rfc6817)
 
 ### DHT
 A distributed hash table is a way of storing key-value data in a distributed fashion. In a sense, it is a simple distributed database.
@@ -38,7 +38,7 @@ a specific implementation called "Mainline DHT" to allow for trackerless torrent
 
 - [DHT - Wikipedia](http://a.wki.pe/DHT)
 - [Mainline DHT - Wikipedia](http://wki.pe/Mainline_DHT)
-- [Specification](http://www.bittorrent.org/beps/bep_0005.html)
+- [Specificationn](http://www.bittorrent.org/beps/bep_0005.html)
 
 
 ### Magnet links
@@ -51,7 +51,7 @@ to get peers and other information about the file from the swarm.
 
 - [Wikipedia](http://wki.pe/Magnet_link)
 - [Official Site](http://magnet-uri.sourceforge.net/)
-- [Specification](http://magnet-uri.sourceforge.net/magnet-draft-overview.txt)
+- [Specificationn](http://magnet-uri.sourceforge.net/magnet-draft-overview.txt)
 
 
 more:
