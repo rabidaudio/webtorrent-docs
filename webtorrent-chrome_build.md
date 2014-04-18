@@ -1,4 +1,8 @@
-## Building
+Building
+========
+
+Start with an `npm install`.
+
 There are a couple of commands for building different parts of the project. You can see them in `package.json`.
 
         "build": "npm run build-css && npm run build-js",
@@ -20,8 +24,8 @@ This will also run `bin/start.js` which will try to add the app into Chrome. thi
 - some weird process error
 
 If this happens, and `chrome/bundle.js` and `chrome/main.css` exist, you can ignore the error and install it manually
-by dragging the `chrome/` directory into the `chrome://extensions` page. Make sure you have enabled developer mode
-in Chrome first by checking the box at the top of `chrome://extensions`.
+by dragging the `chrome/` directory into the `chrome://extensions` page. You may want to enable developer mode in
+Chrome by checking the box at the top of `chrome://extensions`.
 
 ![Developer Mode](img/developer-mode.png)
 

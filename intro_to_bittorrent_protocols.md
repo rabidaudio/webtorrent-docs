@@ -1,9 +1,10 @@
 Introduction to core BitTorrent protocols
------------------------------------------
+=========================================
 
 This is an overview of BitTorrent concepts. Included are links to further information and technical specifications, where available.
 
-## Terms to be defined
+Terms to be defined
+-------------------
 
 https://en.wikipedia.org/wiki/Glossary_of_BitTorrent_terms
 
