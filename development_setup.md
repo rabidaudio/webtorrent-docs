@@ -50,4 +50,4 @@ This will install a list of dependent Node modules used by this project from `np
 
 Now you are ready to contribute! Commit changes and send a pull request. However, much of the functionality has been
 [intentionally](https://github.com/feross/webtorrent#the-node-way) abstracted into independent node modules.
-A description of these modules is available below. See each package for more information.
+A description of these modules is available [here](Modules). See each package for more information.

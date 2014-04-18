@@ -1,5 +1,4 @@
-Example
-=======
+## example
 
 
 ```javascript
@@ -25,16 +24,9 @@ dht.listen(port, function (port) {
 dht.findPeers();
 ```
 
-Usage
-=====
-
-DHT can be constructed with an optional `options` object with these properties:
-
- - nodeId
 
 
-methods
--------
+## methods
 
 ### `setInfoHash(infoHash)`
 
@@ -53,8 +45,7 @@ Get `num` peers from the DHT. Defaults to unlimited.
 
 
 
-Events
-------
+## events
 
 ### 'peer'
 

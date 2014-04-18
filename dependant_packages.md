@@ -33,4 +33,3 @@ webtorrent-bootstrap _(todo)_                                                   
 webworker-pool _(todo)_                                                             | ??
 webtorrent-verifier _(todo)_                                                        | Verify downloaded files are complete and uncorrupted.
 compress-sdp _(todo)_                                                               | Session Description Protocol for multimedia session communication.
-webtorrent-chrome _(todo)_                                                          | ??
