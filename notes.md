@@ -55,40 +55,6 @@ Now, install the dependencies:
 
 This will install a list of dependent Node modules used by this project from `npm`. The list is included in [`package.json`](https://github.com/feross/webtorrent/blob/master/package.json).
 
-## Building
-There are a couple of commands for building different parts of the project. You can see them in `package.json`.
-
-        "build": "npm run build-css && npm run build-js",
-        "build-css": "stylus --use nib css/main.styl --compress --out chrome/ && ./bin/post-build.js",
-        "build-js": "browserify --debug . > chrome/bundle.js",
-        "prepublish": "npm run build",
-        "start": "npm run build && ./bin/start.js",
-        "test": "tape test/*.js",
-        "watch": "npm run watch-js & npm run watch-css",
-        "watch-css": "stylus --use nib css/main.styl --out chrome/ --watch",
-        "watch-js": "watchify . --outfile chrome/bundle.js --debug --verbose"
-        
-To build the chrome app and install it, simply run `npm start`
-This will also run `bin/start.js` which will try to add the app into Chrome. this could fail for several reasons:
-
-- you aren't using Chrome Canary on Mac
-- you are running Chromium
-- you are running Windows
-- some weird process error
-
-If this happens, and `chrome/bundle.js` and `chrome/main.css` exist, you can ignore the error and install it manually
-by dragging the `chrome/` directory into the `chrome://extensions` page. Make sure you have enabled developer mode
-in Chrome first by checking the box at the top of `chrome://extensions`.
-
-![Developer Mode](img/developer-mode.png)
-
-Use the `npm watch` to automatically build when changes are made.
-
-Use the `Reload (Ctrl-R)` button to manually reload the app after changes are made (if `npm start` is failing).
-
-![Reload Chrome App](img/reload.png)
-
-
 Now you are ready to contribute! Commit changes and send a pull request. However, much of the functionality has been
 [intentionally](https://github.com/feross/webtorrent#the-node-way) abstracted into independent node modules.
 A description of these modules is available below. See each package for more information.
@@ -97,16 +63,17 @@ A description of these modules is available below. See each package for more inf
 
 Module                                                                              |                                           Description
 ----------------------------------------------------------------------------------- | -----------------------------------------------------------------------------------------------------
-[webtorrent](https://github.com/feross/webtorrent) (main repo)                      | Browser torrent client.
+[bittorrent-client](https://github.com/feross/bittorrent-client)                    | Main client repo for targets.
 [bittorrent-protocol](https://github.com/feross/bittorrent-protocol)                | Implementation of the core BitTorrent protocols.
-&nbsp;&nbsp;`>` [plugin: ut_metadata](https://github.com/feross/ut_metadata)        | Core BitTorrent protocol for allowing peer sharing of file metadata, which is used by magnet links.
-&nbsp;&nbsp;`>` plugin: encryption _(todo)_                                         | Create connections peers using encryption.
-&nbsp;&nbsp;`>` plugin: peer exchange protocol (PEX) _(todo)_                       | Core BitTorrent protocol for sharing peer lists.
-&nbsp;&nbsp;`>` plugin: µTP _(todo)_                                                | Alternative, UDP-based BitTorrent protocol for mitigating network congestion.
-&nbsp;&nbsp;`>` plugin: UPnP and NAT-PMP port forwarding _(todo)_                   | Universal Plug-and-Play and NAT Port Mapping protocols for handling communication through NATs.
-&nbsp;&nbsp;`>` plugin: webseed support _(todo)_                                    | BitTorrent protocol for downloading via HTTP as well as from peers.
+&nbsp;&nbsp; [plugin: ut_metadata](https://github.com/feross/ut_metadata)           | Core BitTorrent protocol for allowing peer sharing of file metadata, which is used by magnet links.
+&nbsp;&nbsp; plugin: encryption _(todo)_                                            | Create connections peers using encryption.
+&nbsp;&nbsp; plugin: peer exchange protocol (PEX) _(todo)_                          | Core BitTorrent protocol for sharing peer lists.
+&nbsp;&nbsp; plugin: µTP _(todo)_                                                   | Alternative, UDP-based BitTorrent protocol for mitigating network congestion.
+&nbsp;&nbsp; plugin: UPnP and NAT-PMP port forwarding _(todo)_                      | Universal Plug-and-Play and NAT Port Mapping protocols for handling communication through NATs.
+&nbsp;&nbsp; plugin: webseed support _(todo)_                                       | BitTorrent protocol for downloading via HTTP as well as from peers.
 [bittorrent-swarm](https://github.com/feross/bittorrent-swarm)                      | Handles creating and listening for peer connections, handshakes, and tracking traffic.
-[bittorrent-dht](https://github.com/feross/bittorrent-dht) *(work-in-progress)*     | Distributed hash table system (BitTorrent's distributed tracker).
+[bittorrent-tracker](https://github.com/feross/bittorrent-tracker)                  | Tracker server for reporting peer lists.
+[bittorrent-dht](https://github.com/feross/bittorrent-dht)                          | Distributed hash table system (BitTorrent's distributed tracker).
 [magnet-uri](https://github.com/feross/magnet-uri)                                  | Parser for magnet links.
 [parse-torrent](https://github.com/feross/parse-torrent)                            | Parser for `.torrent` files.
 [buffer](https://github.com/feross/buffer)                                          | Browser implementation of [Node buffers](http://nodejs.org/api/buffer.html).
@@ -114,13 +81,15 @@ Module                                                                          
 [chrome-dgram](https://github.com/feross/chrome-dgram)                              | Browser implementation of [Node dgram API](http://nodejs.org/api/dgram.html)(UDP) for Chrome apps.
 [chrome-portfinder](https://github.com/feross/chrome-portfinder)                    | Browser implementation of [portfinder](https://github.com/indexzero/node-portfinder) for Chrome apps.
 [drag-drop](https://github.com/feross/drag-drop)                                    | Browser wrapper for HTML5 drag-and-drop functionality.
+[string2compact](https://github.com/feross/string2compact)                          | Convert 'hostname:port' strings into binary buffers in preferred tracker format
+[typedarray-to-buffer](https://github.com/feross/typedarray-to-buffer)              | Convert a typed array to a Buffer without a copy.
 webtorrent-protocol _(todo)_                                                        | New protocol based off core BitTorrent protocols running over WebRTC.
 webtorrent-dht _(todo)_                                                             | Implementation of DHT system running over WebRTC.
 webtorrent-swarm _(todo)_                                                           | Implementation of swarm protocol running over WebRTC.
 webtorrent-bootstrap _(todo)_                                                       | ??
 webworker-pool _(todo)_                                                             | ??
 webtorrent-verifier _(todo)_                                                        | Verify downloaded files are complete and uncorrupted.
-sdp-compress _(todo)_                                                               | Session Description Protocol for multimedia session communication.
+compress-sdp _(todo)_                                                               | Session Description Protocol for multimedia session communication.
 webtorrent-chrome _(todo)_                                                          | ??
 
 
