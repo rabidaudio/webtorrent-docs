@@ -1,11 +1,35 @@
 Events
 ------
 
-peer        peer_address, hash
-message     data, {address, port, }
-node        address
-listening
-error       err
+### 'peer'
+
+    function (addr, infoHash){ ... }
+
+Called when a peer is found. `addr` is of the form `IP_ADDRESS:PORT`
+
+
+### 'message'
+
+    function (data, rinfo){ ... }
+
+Called when a message is received. `rinfo` is an object with properties `address`, `port`
+
+
+### 'node'
+
+    function (addr){ ... }
+
+Called when client finds a new DHT node.
+
+### 'listening'
+
+    function () { ... }
+
+
+### 'error'
+
+    function (err){ ... }
+
 
 
 methods
