@@ -33,6 +33,26 @@ DHT can be constructed with an optional `options` object with these properties:
  - nodeId
 
 
+methods
+-------
+
+### `setInfoHash(infoHash)`
+
+Associate an infoHash with the DHT object. Can be a String or Buffer.
+
+
+### `dht.listen([port], [callback])`
+
+Open the socket. If port is undefined, one is picked with [portfinder](https://github.com/indexzero/node-portfinder).
+`callback` is equivalent to `listening` event.
+
+
+### `findPeers([num])`
+
+Get `num` peers from the DHT. Defaults to unlimited.
+
+
+
 Events
 ------
 
@@ -64,23 +84,3 @@ Called when client finds a new DHT node.
 ### 'error'
 
     function (err){ ... }
-
-
-
-methods
--------
-
-### `setInfoHash(infoHash)`
-
-Associate an infoHash with the DHT object. Can be a String or Buffer.
-
-
-### `dht.listen([port], [callback])`
-
-Open the socket. If port is undefined, one is picked with [portfinder](https://github.com/indexzero/node-portfinder).
-`callback` is equivalent to `listening` event.
-
-
-### `findPeers([num])`
-
-Get `num` peers from the DHT. Defaults to unlimited.
